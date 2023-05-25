@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en" class="h-100" data-bs-theme="auto">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+  <link rel="stylesheet" href="./css/styles.css">
+
+  <title>Amigos</title>
+
+  <style>
+    .accordion-button:not(.collapsed) {
+      color: var(--bs-white);
+      background-color: #000;
+      box-shadow: inset 0 calc(-1 * #000) 0 #000;
+    }
+  </style>
+
+</head>
+
+<body class="d-flex h-100 text-center text-bg-dark">
+  <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+    <header class="mb-auto">
+      <div>
+        <h3 class="float-md-start mb-0">Crear nuevo juego</h3>
+      </div>
+    </header>
+
+    <main class="px-3">
+      <h1>🎲 Juego #123</h1>
+      <div class="accordion" id="accordionExample">
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+              aria-expanded="true" aria-controls="collapseOne">
+              Jugadores 🃏
+            </button>
+          </h2>
+          <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+              <form class="row g-3 needs-validation" novalidate>
+                <div class="col-md-12">
+                  <div class="input-group has-validation">
+                    <span class="input-group-text" id="inputGroupPrepend">@</span>
+                    <input type="text" class="form-control" id="validationCustomUsername"
+                      aria-describedby="inputGroupPrepend" required placeholder="Jugador 🥷🏽">
+                    <div class="invalid-feedback">
+                      Por favor ingrese un nombre de usuario.
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <button class="btn btn-dark" type="submit">Crear</button>
+                </div>
+              </form>
+              <div class="pt-3">
+                <h5>Jugadores 🧟‍♀️</h5>
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col">Jugador</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row">1</th>
+                      <td>Mark</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+              data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+              Sistema de puntos 🎰
+            </button>
+          </h2>
+          <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+              <form class="row g-3 needs-validation" novalidate>
+                <div class="col-md-12">
+                  <div class="input-group has-validation">
+                    <span class="input-group-text" id="inputGroupPrepend">•</span>
+                    <input type="text" class="form-control" id="validationCustomPoints"
+                      aria-describedby="inputGroupPrepend" required placeholder="Puntos 🎯">
+                    <div class="invalid-feedback">
+                      Por favor ingrese puntos.
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <div class="input-group has-validation">
+                    <span class="input-group-text" id="inputGroupPrepend">$</span>
+                    <input type="text" class="form-control" id="validationCustomValue"
+                      aria-describedby="inputGroupPrepend" required placeholder="Valor 💸">
+                    <div class="invalid-feedback">
+                      Por favor ingrese un valor.
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <button class="btn btn-dark" type="submit">Crear</button>
+                </div>
+              </form>
+              <div class="pt-3">
+                <h5>Puntos 🎰</h5>
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col">Puntos</th>
+                      <th scope="col">Valor</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row">1</th>
+                      <td>3</td>
+                      <td>$100</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button class="btn btn-light mt-5" type="button">Jugar 🚀</button>
+    </main>
+
+    <footer class="mt-auto text-white-50">
+      <p>Amigos by <a href="https://twitter.com/Eltaljohnb" class="text-white">@eltaljohn</a>.</p>
+    </footer>
+  </div>
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
