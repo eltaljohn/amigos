@@ -7,7 +7,6 @@
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-  <link rel="stylesheet" href="./css/styles.css">
 
   <title>Amigos</title>
 
@@ -25,7 +24,7 @@
   <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
     <header class="mb-auto">
       <div>
-        <h3 class="float-md-start mb-0">Crear nuevo juego</h3>
+        <h3 class="float-md-start mb-0">Creación de juego</h3>
       </div>
     </header>
 
@@ -41,14 +40,14 @@
           </h2>
           <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
             <div class="accordion-body">
-              <form class="row g-3 needs-validation" novalidate>
+              <form class="row g-3 needs-validation" novalidate id="playersForm">
                 <div class="col-md-12">
                   <div class="input-group has-validation">
                     <span class="input-group-text" id="inputGroupPrepend">@</span>
-                    <input type="text" class="form-control" id="validationCustomUsername"
+                    <input type="text" class="form-control" id="player"
                       aria-describedby="inputGroupPrepend" required placeholder="Jugador 🥷🏽">
                     <div class="invalid-feedback">
-                      Por favor ingrese un nombre de usuario.
+                      Ingrese nombre jugador.
                     </div>
                   </div>
                 </div>
@@ -65,12 +64,7 @@
                       <th scope="col">Jugador</th>
                     </tr>
                   </thead>
-                  <tbody>
-                    <tr>
-                      <th scope="row">1</th>
-                      <td>Mark</td>
-                    </tr>
-                  </tbody>
+                  <tbody id="tbodyplayers"></tbody>
                 </table>
               </div>
             </div>
@@ -85,24 +79,24 @@
           </h2>
           <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
             <div class="accordion-body">
-              <form class="row g-3 needs-validation" novalidate>
+              <form class="row g-3 needs-validation" novalidate id="rulesForm">
                 <div class="col-md-12">
                   <div class="input-group has-validation">
                     <span class="input-group-text" id="inputGroupPrepend">•</span>
-                    <input type="text" class="form-control" id="validationCustomPoints"
+                    <input type="text" class="form-control" id="points"
                       aria-describedby="inputGroupPrepend" required placeholder="Puntos 🎯">
                     <div class="invalid-feedback">
-                      Por favor ingrese puntos.
+                      Ingrese puntos.
                     </div>
                   </div>
                 </div>
                 <div class="col-md-12">
                   <div class="input-group has-validation">
                     <span class="input-group-text" id="inputGroupPrepend">$</span>
-                    <input type="text" class="form-control" id="validationCustomValue"
+                    <input type="text" class="form-control" id="money"
                       aria-describedby="inputGroupPrepend" required placeholder="Valor 💸">
                     <div class="invalid-feedback">
-                      Por favor ingrese un valor.
+                      Ingrese un valor.
                     </div>
                   </div>
                 </div>
@@ -111,7 +105,7 @@
                 </div>
               </form>
               <div class="pt-3">
-                <h5>Puntos 🎰</h5>
+                <h5>Puntuación 🎰</h5>
                 <table class="table">
                   <thead>
                     <tr>
@@ -120,12 +114,7 @@
                       <th scope="col">Valor</th>
                     </tr>
                   </thead>
-                  <tbody>
-                    <tr>
-                      <th scope="row">1</th>
-                      <td>3</td>
-                      <td>$100</td>
-                    </tr>
+                  <tbody id="tbodyrules">
                   </tbody>
                 </table>
               </div>
@@ -133,7 +122,7 @@
           </div>
         </div>
       </div>
-      <button class="btn btn-light mt-5" type="button">Jugar 🚀</button>
+      <button class="btn btn-light mt-5" type="button" id="playButton" >Jugar 🚀</button>
     </main>
 
     <footer class="mt-auto text-white-50">
@@ -146,6 +135,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
     crossorigin="anonymous"></script>
+  <script src="../js/game.js"></script>
 </body>
 
 </html>
