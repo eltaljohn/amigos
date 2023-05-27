@@ -1,4 +1,5 @@
 import { generateID } from "./helpers.js";
+import { saveGame } from "./db.js";
 
 let players = [];
 let rules = [];
@@ -13,7 +14,7 @@ const btnPlay = document.querySelector("#playButton");
 playersForm.addEventListener("submit", (event) => {
   event.preventDefault();
 
-  if (!playersForm.checkValidity()) playersForm.classList.add("was-validated");
+  if (!playersForm.checkValidity()) return playersForm.classList.add("was-validated");
 
   const player = playersForm.elements["player"];
   players.push(player.value);
@@ -25,7 +26,7 @@ playersForm.addEventListener("submit", (event) => {
 rulesForm.addEventListener("submit", (event) => {
   event.preventDefault();
 
-  if (!rulesForm.checkValidity()) rulesForm.classList.add("was-validated");
+  if (!rulesForm.checkValidity()) return rulesForm.classList.add("was-validated");
 
   const points = rulesForm.elements["points"];
   const money = rulesForm.elements["money"];
@@ -37,7 +38,10 @@ rulesForm.addEventListener("submit", (event) => {
 
 btnPlay.addEventListener("click", () => {
   if (players.length > 0 && rules.length > 0) {
-    return (window.location.href = "game.html");
+    const id = generateID();
+    saveGame({id, players, rules});
+
+    return (window.location.href = `game.html?id=${id}`);
   }
   alert("Agrega jugadores y reglas para jugar 👾");
 });

@@ -1,23 +1,30 @@
 const saveGame = (game) => {
   try {
     const data = readData();
-    data.db.find((x) => x.id === game.id);
-    // localStorage.setItem(
-    //   "db",
-    //   '{"db":[{"id":123, "players":["John","Dani"], "rules": [{"points":2, "values":100}]}]}'
-    // );
+    if (data) {
+      const g = data.db.find((x) => x.id === game.id);
+      if (!g) {
+        data.db.push(game);
+        saveData(JSON.stringify(data.db));
+      }
+    } else {
+      localStorage.setItem("db", `{"db":[${JSON.stringify(game)}]}`);
+    }
   } catch (e) {
     console.error(e);
   }
 };
 
-const saveData = (db) => {
-  localStorage.setItem(
-    "db",
-    db
-  );
+const getGame = (id) => {
+  const data = readData();
+  if (data) {
+    return data.db.find((x) => x.id === id);
+  }
+  console.error("game id not found");
 };
+
+const saveData = (db) => localStorage.setItem("db", db);
 
 const readData = () => JSON.parse(localStorage.getItem("db"));
 
-export { saveGame, readData };
+export { saveGame, readData, getGame };
