@@ -20,10 +20,10 @@
 
 </head>
 
-<body class="d-flex h-100 text-center text-bg-dark">
+<body class="d-flex h-100 text-bg-dark">
   <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
     <main class="px-3">
-      <h1>🎲 Juego #123</h1>
+      <h1 id="gameTitle"></h1>
       <div class="accordion" id="accordionExample">
         <div class="accordion-item">
           <h2 class="accordion-header">
@@ -34,35 +34,29 @@
           </h2>
           <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
             <div class="accordion-body">
-              <form class="row g-3 needs-validation" novalidate>
+              <form class="row g-3 needs-validation" id="formGame" novalidate>
                 <div class="col-md-12">
-                  <select class="form-select" id="loserPlayers" required>
-                    <option selected disabled value="">Jugador perdedor 🤡</option>
-                    <option>...</option>
-                  </select>
+                  <label for="loserPlayers" class="form-label">Jugador perdedor 🤡</label>
+                  <select class="form-select" id="loserPlayers" required></select>
                   <div class="invalid-feedback">
                     Ingrese un jugador
                   </div>
                 </div>
                 <div class="col-md-12">
-                  <select class="form-select" id="points" required>
-                    <option selected disabled value="">Puntos 🎯</option>
-                    <option>...</option>
-                  </select>
+                  <label for="points" class="form-label">Puntos 🎯</label>
+                  <select class="form-select" id="points" required></select>
                   <div class="invalid-feedback">
                     Ingrese puntos
                   </div>
                 </div>
                 <div class="col-md-12">
-                  <select class="form-select" id="winnerPlayers" required>
-                    <option selected disabled value="">Jugador ganador 😈</option>
-                    <option>...</option>
-                  </select>
+                  <label for="winnerPlayers" class="form-label">Jugador ganador 😈</label>
+                  <select class="form-select" id="winnerPlayers" required></select>
                   <div class="invalid-feedback">
                     Ingrese un jugador
                   </div>
                 </div>
-                <div class="col-12">
+                <div class="col-12 text-center">
                   <button class="btn btn-dark" type="submit">Mover 💥</button>
                 </div>
               </form>
@@ -77,24 +71,19 @@
                       <th scope="col">Jugador 😈</th>
                     </tr>
                   </thead>
-                  <tbody>
-                    <tr>
-                      <th scope="row">1</th>
-                      <td>Mark</td>
-                      <td>3</td>
-                      <td>Joe</td>
-                    </tr>
-                  </tbody>
+                  <tbody id="tbodyMoves"></tbody>
                 </table>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <button class="btn btn-light mt-5" type="button">Finalizar 🕹️</button>
+      <div class="text-center">
+        <button class="btn btn-light mt-5" type="button">Finalizar 🕹️</button>
+      </div>
     </main>
 
-    <footer class="mt-auto text-white-50">
+    <footer class="mt-auto text-white-50 text-center">
       <p>Amigos by <a href="https://twitter.com/Eltaljohnb" class="text-white">@eltaljohn</a>.</p>
     </footer>
   </div>
