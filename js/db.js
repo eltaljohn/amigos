@@ -5,7 +5,7 @@ const saveGame = (game) => {
       const g = data.db.find((x) => x.id === game.id);
       if (!g) {
         data.db.push(game);
-        saveData(JSON.stringify(data.db));
+        saveData(`{"db":${JSON.stringify(data.db)}}`);
       }else{
         const games = data.db.filter((x) => x.id !== game.id);  
         games.push(game);  
