@@ -1,6 +1,6 @@
 const saveGame = (game) => {
   try {
-    const data = readData();
+    const data = getData();
     if (data) {
       const g = data.db.find((x) => x.id === game.id);
       if (!g) {
@@ -29,7 +29,7 @@ const saveMoves = (moves, id) => {
 }
 
 const getGame = (id) => {
-  const data = readData();
+  const data = getData();
   if (data) {
     return data.db.find((x) => x.id === id);
   }
@@ -38,6 +38,6 @@ const getGame = (id) => {
 
 const saveData = (db) => localStorage.setItem("db", db);
 
-const readData = () => JSON.parse(localStorage.getItem("db"));
+const getData = () => JSON.parse(localStorage.getItem("db"));
 
-export { saveGame, readData, getGame, saveMoves };
+export { saveGame, getData, getGame, saveMoves };

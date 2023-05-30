@@ -39,7 +39,8 @@ rulesForm.addEventListener("submit", (event) => {
 btnPlay.addEventListener("click", () => {
   if (players.length > 0 && rules.length > 0) {
     const id = generateID();
-    saveGame({id, players, rules});
+    const date = Date.now();
+    saveGame({id, date, players, rules});
 
     return (window.location.href = `game.html?id=${id}`);
   }
