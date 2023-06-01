@@ -38,10 +38,11 @@ rulesForm.addEventListener("submit", (event) => {
 
 btnPlay.addEventListener("click", () => {
   if (players.length > 0 && rules.length > 0) {
+    const parameters = new URLSearchParams(window.location.search);
+    const roomID = parameters.get("roomid");
     const id = generateID();
     const date = Date.now();
-    saveGame({id, date, players, rules});
-
+    saveGame({ id, date, players, rules }, roomID);
     return (window.location.href = `game.html?id=${id}`);
   }
   alert("Agrega jugadores y reglas para jugar 👾");

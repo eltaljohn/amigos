@@ -10,7 +10,7 @@ const formatTimeAgo = (timestamp) => {
   const month = 30 * day;
 
   if (difference < minute) {
-    return "Justo ahora";
+    return "ahora";
   } else if (difference < hour) {
     const minutes = Math.floor(difference / minute);
     return minutes + "m";

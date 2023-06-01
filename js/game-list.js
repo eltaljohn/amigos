@@ -2,6 +2,9 @@ import { getData } from "./db.js";
 import { formatTimeAgo } from "./time.js";
 
 const divGames = document.querySelector("#games");
+const btnNewGame = document.querySelector("#newGame");
+
+btnNewGame.addEventListener("click", () => window.location.href = `create-new-game.html${location.search}`);
 
 document.addEventListener("DOMContentLoaded", () => {
   const { db } = getData() || [];
@@ -34,3 +37,4 @@ const renderGames = (games) => {
     divGames.appendChild(div.firstChild);
   }
 };
+
