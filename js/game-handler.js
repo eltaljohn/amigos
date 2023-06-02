@@ -1,7 +1,7 @@
 import { getGame, saveMoves } from "./db.js";
 
 let moves = [];
-let mainID;
+let mainID, roomID;
 
 const gameTitle = document.querySelector("#gameTitle");
 const loserPlayers = document.querySelector("#loserPlayers");
@@ -14,8 +14,13 @@ const btnFinish = document.querySelector("#finish");
 document.addEventListener("DOMContentLoaded", () => {
   const parameters = new URLSearchParams(window.location.search);
   mainID = parameters.get("id");
-  if (mainID) {
-    const game = getGame(mainID);
+  roomID = parameters.get("roomid");
+  if (mainID && roomID) {
+    const game = getGame(mainID, roomID);
+    if (game.moves?.length > 0) {
+      moves = game.moves;
+      renderMoves();      
+    }
     gameTitle.innerHTML = `🎲 Juego #${mainID.split("-")[0]}`;
     addPlayersOptions(loserPlayers, game.players, "Selecctione...");
     addPlayersOptions(winnerPlayers, game.players, "Selecctione...");
@@ -66,8 +71,8 @@ btnFinish.addEventListener("click", () => {
   if (moves.length <= 0) {
     return alert('El juego debe tener almenos 1 movida! 👾');
   }
-  saveMoves(moves, mainID);
-  window.location.href = `results.html?id=${mainID}`;
+  saveMoves(moves, mainID, roomID);
+  window.location.href = `results.html?id=${mainID}&roomid=${roomID}`;
 });
 
 const renderMoves = () => {
