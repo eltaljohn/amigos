@@ -2,16 +2,16 @@ import { getGame } from "./db.js";
 
 const tbodyMoves = document.querySelector('#tbodyMoves');
 
-let mainID;
+let mainID, roomID;
 let moves = [];
 
 document.addEventListener("DOMContentLoaded", () => {
   const parameters = new URLSearchParams(window.location.search);
   mainID = parameters.get("id");
-  if (mainID) {
-    const game = getGame(mainID);
+  roomID = parameters.get("roomid");
+  if (mainID && roomID) {
+    const game = getGame(mainID, roomID);
     gameTitle.innerHTML = `🎲 Juego #${mainID.split("-")[0]}`;
-    console.log({game});
     moves = game.moves;
     renderMoves();
     return;
